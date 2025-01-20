@@ -18,7 +18,18 @@ class Inventory: ObservableObject {
             // Killzone
             LootItem(name: "StA-52 Assault Rifle", type: .fire, rarity: .common, attackStrength: 30, game: availableGames.first(where: { $0.name == "Killzone" }) ?? .emptyGame),
             LootItem(name: "M82 Sniper Rifle", type: .thunder, rarity: .legendary, attackStrength: 70, game: availableGames.first(where: { $0.name == "Killzone" }) ?? .emptyGame),
-            LootItem(name: "Machete", type: .poison, rarity: .rare, attackStrength: 10, game: availableGames.first(where: { $0.name == "Killzone" }) ?? .emptyGame)
+            LootItem(name: "Machete", type: .poison, rarity: .rare, attackStrength: 10, game: availableGames.first(where: { $0.name == "Killzone" }) ?? .emptyGame),
+            
+            // Résistance
+            LootItem(name: "M4A1 Carbine", type: .fire, rarity: .common, attackStrength: 35, game: availableGames.first(where: { $0.name == "Résistance" }) ?? .emptyGame),
+            LootItem(name: "Auger", type: .ice, rarity: .legendary, attackStrength: 60, game: availableGames.first(where: { $0.name == "Résistance" }) ?? .emptyGame),
+            LootItem(name: "Splicer", type: .thunder, rarity: .rare, attackStrength: 45, game: availableGames.first(where: { $0.name == "Résistance" }) ?? .emptyGame),
+
+            // Legendary
+            LootItem(name: "Laser Rifle", type: .fire, rarity: .common, attackStrength: 25, game: availableGames.first(where: { $0.name == "Legendary" }) ?? .emptyGame),
+            LootItem(name: "Gravity Hammer", type: .wind, rarity: .legendary, attackStrength: 80, game: availableGames.first(where: { $0.name == "Legendary" }) ?? .emptyGame),
+            LootItem(name: "Sword of Justice", type: .magic, rarity: .unique, attackStrength: 100, game: availableGames.first(where: { $0.name == "Legendary" }) ?? .emptyGame)
+
         ]
     }
     
@@ -34,35 +45,36 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                Button(action: {
-                    let newItem = LootItem(
-                        name: "Épée du Dragon",
-                        type: .fire,
-                        rarity: .legendary,
-                        attackStrength: 50,
-                        game: availableGames.first(where: { $0.name == "Halo" }) ?? .emptyGame
-                    )
-                    inventory.addItem(item: newItem)
-                }, label: {
-                    Text("Ajouter")
-                })
                 ForEach(inventory.loot) { item in
                     NavigationLink {
                         LootDetailView(item: item)
                     } label: {
                         VStack(alignment: .leading) {
-                            Text(item.name)
-                                .font(.headline)
-                            Text("Type: \(item.type.rawValue)")
-                            Text("\(item.rarity.rawValue)")
-                                .foregroundColor(item.rarity.color)
-                            
-                            if let attackStrength = item.attackStrength {
-                                Text("Force d'attaque: \(attackStrength)")
+                            HStack {
+                                // Colonne gauche : Informations
+                                VStack(alignment: .leading) {
+                                    Text(item.name)
+                                        .font(.headline)
+                                    Text("Type: \(item.type.rawValue)")
+                                    Text("\(item.rarity.rawValue)")
+                                        .foregroundColor(item.rarity.color)
+                                    
+                                    if let attackStrength = item.attackStrength {
+                                        Text("Attaque: \(attackStrength)")
+                                    }
+                                }
+                                
+                                Spacer() // Un espace qui pousse le contenu suivant vers la droite
+                                
+                                // Colonne droite : Informations sur le jeu et nom
+                                VStack(alignment: .trailing) {
+                                    Text("\(item.game.name.isEmpty ? "Inconnu" : item.game.name)")
+                                        .font(.headline)
+                                        .frame(maxWidth: .infinity, alignment: .trailing) // Aligner à droite
+                                }
                             }
-                            Text("\(item.game.name.isEmpty ? "Inconnu" : item.game.name)")
+                            .padding()
                         }
-                        .padding()
                     }
                 }
             }
