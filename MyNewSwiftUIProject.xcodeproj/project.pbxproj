@@ -11,6 +11,8 @@
 		17747EF62D3E3BCB00990499 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17747EF52D3E3BCB00990499 /* ContentView.swift */; };
 		17747EF82D3E3BCD00990499 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17747EF72D3E3BCD00990499 /* Assets.xcassets */; };
 		17747EFB2D3E3BCD00990499 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17747EFA2D3E3BCD00990499 /* Preview Assets.xcassets */; };
+		17747F022D3E3E2400990499 /* Answerd.md in Resources */ = {isa = PBXBuildFile; fileRef = 17747F012D3E3E2400990499 /* Answerd.md */; };
+		17747F042D3E3F4500990499 /* AdditemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17747F032D3E3F4500990499 /* AdditemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		17747EF52D3E3BCB00990499 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		17747EF72D3E3BCD00990499 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17747EFA2D3E3BCD00990499 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		17747F012D3E3E2400990499 /* Answerd.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Answerd.md; sourceTree = "<group>"; };
+		17747F032D3E3F4500990499 /* AdditemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 		17747EE72D3E3BCB00990499 = {
 			isa = PBXGroup;
 			children = (
+				17747F012D3E3E2400990499 /* Answerd.md */,
 				17747EF22D3E3BCB00990499 /* MyNewSwiftUIProject */,
 				17747EF12D3E3BCB00990499 /* Products */,
 			);
@@ -53,6 +58,7 @@
 			children = (
 				17747EF32D3E3BCB00990499 /* MyNewSwiftUIProjectApp.swift */,
 				17747EF52D3E3BCB00990499 /* ContentView.swift */,
+				17747F032D3E3F4500990499 /* AdditemView.swift */,
 				17747EF72D3E3BCD00990499 /* Assets.xcassets */,
 				17747EF92D3E3BCD00990499 /* Preview Content */,
 			);
@@ -126,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17747EFB2D3E3BCD00990499 /* Preview Assets.xcassets in Resources */,
+				17747F022D3E3E2400990499 /* Answerd.md in Resources */,
 				17747EF82D3E3BCD00990499 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17747F042D3E3F4500990499 /* AdditemView.swift in Sources */,
 				17747EF62D3E3BCB00990499 /* ContentView.swift in Sources */,
 				17747EF42D3E3BCB00990499 /* MyNewSwiftUIProjectApp.swift in Sources */,
 			);

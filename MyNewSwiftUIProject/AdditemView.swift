@@ -1,15 +1,35 @@
-//
-//  AdditemView.swift
-//  MyNewSwiftUIProject
-//
-//  Created by Ethan DAHI-GERMAIN on 1/20/25.
-//
-
 import SwiftUI
 
+enum Rarity: String, CaseIterable, Identifiable {
+    case common = "Commun"
+    case rare = "Rare"
+    case legendary = "Légendaire"
+    
+    var id: String { self.rawValue }
+}
+
 struct AdditemView: View {
+    @State private var name = ""
+    @State private var rarity: Rarity = .common
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            Section {
+                TextField("Nom de l'objet", text: $name)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                Picker("Rarete", selection: $rarity) {
+                    ForEach(Rarity.allCases) { rarity in
+                        Text(rarity.rawValue).tag(rarity)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+            }
+            Button(action: {}, label: {
+                Text("Ajouter")
+            })
+        }
+        .navigationTitle("Ajouter un objet")
     }
 }
 
