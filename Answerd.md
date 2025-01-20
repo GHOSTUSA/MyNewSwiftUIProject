@@ -7,3 +7,8 @@
  
 # 4-1
 Bonne question
+
+# 4-2
+Je ne sais ou est le terminal
+
+

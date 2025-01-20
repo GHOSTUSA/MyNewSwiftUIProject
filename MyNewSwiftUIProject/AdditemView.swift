@@ -4,11 +4,15 @@ enum Rarity: String, CaseIterable, Identifiable {
     case common = "Commun"
     case rare = "Rare"
     case legendary = "Légendaire"
+    case only9 = "Seulement 9"
+    case unique = "Unique"
     
     var id: String { self.rawValue }
 }
 
 struct AdditemView: View {
+    @EnvironmentObject var inventory: Inventory
+    
     @State private var name = ""
     @State private var rarity: Rarity = .common
     
@@ -18,16 +22,21 @@ struct AdditemView: View {
                 TextField("Nom de l'objet", text: $name)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 
-                Picker("Rarete", selection: $rarity) {
+                Picker("Rareté", selection: $rarity) {
                     ForEach(Rarity.allCases) { rarity in
                         Text(rarity.rawValue).tag(rarity)
                     }
                 }
-                .pickerStyle(SegmentedPickerStyle())
             }
-            Button(action: {}, label: {
+            
+            Button(action: {
+                let newItem = "\(name)"
+                inventory.addItem(item: newItem)
+                name = ""
+            }) {
                 Text("Ajouter")
-            })
+            }
+            .disabled(name.isEmpty)
         }
         .navigationTitle("Ajouter un objet")
     }
@@ -35,4 +44,5 @@ struct AdditemView: View {
 
 #Preview {
     AdditemView()
+        .environmentObject(Inventory())
 }

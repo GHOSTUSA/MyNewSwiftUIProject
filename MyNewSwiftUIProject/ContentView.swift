@@ -25,19 +25,20 @@ struct ContentView: View {
                     Text(item)
                 }
             }
-            .sheet(isPresented: $showAddItemView, content: {
-                    AdditemView()
-                })
-            .navigationBarTitle("Loot") // Notre titre de page, choisissez le titre que vous voulez
-                .toolbar(content: { // La barre d'outil de notre page
-                    ToolbarItem(placement: ToolbarItemPlacement.automatic) {
-                        Button(action: {
-                            showAddItemView.toggle() // L'action de notre bouton
-                        }, label: {
-                            Image(systemName: "plus.circle.fill")
-                        })
+            .navigationTitle("Loot")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        showAddItemView.toggle()
+                    }) {
+                        Image(systemName: "plus.circle.fill")
                     }
-                })
+                }
+            }
+            .sheet(isPresented: $showAddItemView) {
+                AdditemView()
+                    .environmentObject(inventory)
+            }
         }
     }
 }
