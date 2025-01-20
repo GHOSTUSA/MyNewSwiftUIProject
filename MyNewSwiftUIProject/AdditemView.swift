@@ -1,21 +1,13 @@
 import SwiftUI
 
-enum Rarity: String, CaseIterable, Identifiable {
-    case common = "Commun"
-    case rare = "Rare"
-    case legendary = "Légendaire"
-    case only9 = "Seulement 9"
-    case unique = "Unique"
-    
-    var id: String { self.rawValue }
-}
-
 struct AdditemView: View {
     @EnvironmentObject var inventory: Inventory
     
     @State private var name = ""
     @State private var rarity: Rarity = .common
-    
+    @State private var type: ItemType = .magic // Choisir un type par défaut pour l'exemple
+    @State private var game: Game = .emptyGame // Jeu par défaut
+
     var body: some View {
         Form {
             Section {
@@ -27,12 +19,24 @@ struct AdditemView: View {
                         Text(rarity.rawValue).tag(rarity)
                     }
                 }
+                
+                Picker("Type d'objet", selection: $type) {
+                    ForEach(ItemType.allCases) { itemType in
+                        Text(itemType.rawValue).tag(itemType)
+                    }
+                }
             }
             
             Button(action: {
-                let newItem = "\(name)"
+                let newItem = LootItem(
+                    name: name,
+                    type: type,
+                    rarity: rarity,
+                    attackStrength: nil, // Vous pouvez ajuster la force d'attaque selon le type
+                    game: game
+                )
                 inventory.addItem(item: newItem)
-                name = ""
+                name = "" // Réinitialiser le champ de texte après l'ajout
             }) {
                 Text("Ajouter")
             }
