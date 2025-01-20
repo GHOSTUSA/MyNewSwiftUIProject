@@ -15,6 +15,7 @@
 		17747F042D3E3F4500990499 /* AdditemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17747F032D3E3F4500990499 /* AdditemView.swift */; };
 		17747F062D3E579B00990499 /* LootItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17747F052D3E579B00990499 /* LootItem.swift */; };
 		17747F082D3E5A9E00990499 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17747F072D3E5A9E00990499 /* Game.swift */; };
+		17747F0B2D3E7E5A00990499 /* LootDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17747F0A2D3E7E5A00990499 /* LootDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		17747F052D3E579B00990499 /* LootItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LootItem.swift; sourceTree = "<group>"; };
 		17747F072D3E5A9E00990499 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		17747F092D3E5BF200990499 /* co2qtv.webp */ = {isa = PBXFileReference; lastKnownFileType = file; name = co2qtv.webp; path = ../../../Documents/co2qtv.webp; sourceTree = "<group>"; };
+		17747F0A2D3E7E5A00990499 /* LootDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LootDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				17747EF32D3E3BCB00990499 /* MyNewSwiftUIProjectApp.swift */,
 				17747EF52D3E3BCB00990499 /* ContentView.swift */,
 				17747F032D3E3F4500990499 /* AdditemView.swift */,
+				17747F0A2D3E7E5A00990499 /* LootDetailView.swift */,
 				17747F052D3E579B00990499 /* LootItem.swift */,
 				17747F072D3E5A9E00990499 /* Game.swift */,
 				17747F092D3E5BF200990499 /* co2qtv.webp */,
@@ -155,6 +158,7 @@
 				17747F042D3E3F4500990499 /* AdditemView.swift in Sources */,
 				17747F082D3E5A9E00990499 /* Game.swift in Sources */,
 				17747EF62D3E3BCB00990499 /* ContentView.swift in Sources */,
+				17747F0B2D3E7E5A00990499 /* LootDetailView.swift in Sources */,
 				17747F062D3E579B00990499 /* LootItem.swift in Sources */,
 				17747EF42D3E3BCB00990499 /* MyNewSwiftUIProjectApp.swift in Sources */,
 			);

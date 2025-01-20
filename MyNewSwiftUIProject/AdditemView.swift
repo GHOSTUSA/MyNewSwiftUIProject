@@ -20,6 +20,7 @@ struct AdditemView: View {
                 Picker("Rareté", selection: $rarity) {
                     ForEach(Rarity.allCases) { rarity in
                         Text(rarity.rawValue).tag(rarity)
+                            .foregroundColor(rarity.color)
                     }
                 }
             Section {
@@ -30,11 +31,14 @@ struct AdditemView: View {
                     Stepper("Attaque : \(attackStrength)", value: $attackStrength, in: 0...100)
                 }
             }
+            Section {
                 Picker("Jeu", selection: $game) {
                     ForEach(availableGames, id: \.id) { game in
                         Text(game.name).tag(game)
                     }
                 }
+            }
+            
             Section {
                 Stepper("Quantité : \(quantity)", value: $quantity, in: 1...100)
             }
@@ -44,7 +48,7 @@ struct AdditemView: View {
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
-            }
+            
             
             Button(action: {
                 let newItem = LootItem(

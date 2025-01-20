@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 // Définition de l'énumération ItemType
 enum ItemType: String, CaseIterable, Identifiable {
@@ -25,7 +26,24 @@ enum Rarity: String, CaseIterable, Identifiable {
     case unique = "Unique"
     
     var id: String { self.rawValue }
-}
+    
+    // Propriété calculée pour renvoyer une couleur en fonction de la rareté
+        var color: Color {
+            switch self {
+            case .common:
+                return .gray
+            case .rare:
+                return .green
+            case .legendary:
+                return .yellow
+            case .only9:
+                return .pink
+            case .unique:
+                return .orange
+            }
+        }
+    }
+
 
 // Définition de la structure LootItem
 struct LootItem: Identifiable {
